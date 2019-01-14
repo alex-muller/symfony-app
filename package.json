@@ -1,0 +1,23 @@
+{
+  "name": "symfony-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.22.4"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "holderjs": "^2.9.6",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  }
+}
