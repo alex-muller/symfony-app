@@ -47,11 +47,11 @@ class MicroPostController
         EntityManagerInterface $entityManager,
         RouterInterface $router
     ) {
-        $this->twig = $twig;
+        $this->twig                = $twig;
         $this->microPostRepository = $microPostRepository;
-        $this->formFactory = $formFactory;
-        $this->entityManager = $entityManager;
-        $this->router = $router;
+        $this->formFactory         = $formFactory;
+        $this->entityManager       = $entityManager;
+        $this->router              = $router;
     }
 
     /**
@@ -59,9 +59,12 @@ class MicroPostController
      */
     public function index()
     {
-        $html = $this->twig->render('micro-post/index.html.twig', [
-            'posts' => $this->microPostRepository->findAll()
-        ]);
+        $html = $this->twig->render(
+            'micro-post/index.html.twig',
+            [
+                'posts' => $this->microPostRepository->findAll(),
+            ]
+        );
 
         return new Response($html);
     }
@@ -85,9 +88,27 @@ class MicroPostController
         }
 
         return new Response(
-            $this->twig->render('micro-post/add.html.twig',
+            $this->twig->render(
+                'micro-post/add.html.twig',
                 [
-                    'form' => $form->createView()
+                    'form' => $form->createView(),
+                ]
+            )
+        );
+    }
+
+    /**
+     * @Route("/{id}", name="micro_post_post")
+     */
+    public function post(MicroPost $post)
+    {
+        //$post = $this->microPostRepository->find($id);
+
+        return new Response(
+            $this->twig->render(
+                'micro-post/post.html.twig',
+                [
+                    'post' => $post,
                 ]
             )
         );
