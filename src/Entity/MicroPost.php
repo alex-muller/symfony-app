@@ -68,6 +68,4 @@ class MicroPost
     {
         $this->time = $time;
     }
-
-
 }
